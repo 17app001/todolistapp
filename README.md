@@ -26,3 +26,6 @@
 ### git add .
 
 ### git commit -m "message"
+
+
+### python manage.py shell
