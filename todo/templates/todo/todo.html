@@ -2,7 +2,41 @@
 {% block title %}
 代辦事項頁面
 {% endblock %}
-{% block content %}
-<h1>Todo</h1>
+{% block css %}
+<style>
+    li {
+        list-style-type: none;
+    }
 
+    ul {
+        border-radius: 12px;
+        width: 400px;
+        background-color: aquamarine;
+        padding: 24px;
+    }
+
+    .title {
+        color: blueviolet;
+        background-color: white;
+        width: 300px;
+        font-size: 36px;
+        font-weight: 900;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<h1>TodoList</h1>
+{% if todos %}
+{% for todo in todos %}
+<ul>
+    <li>{{todo.id}}</li>
+    <li class="title">{{todo.title}}</li>
+    <li>{{todo.text}}</li>
+    <li>{{todo.created}}</li>
+    <li>{{todo.important}}</li>
+</ul>
+{% endfor %}
+{% else %}
+目前無代辦事項
+{% endif %}
 {% endblock %}
