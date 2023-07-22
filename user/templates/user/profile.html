@@ -9,14 +9,10 @@
 </head>
 
 <body>
-    <h1>Register</h1>
-    <form action="" method="POST">
-        {% csrf_token %}
-
-        {{form.as_p}}
-        <button type="submit">註冊</button>
-    </form>
-    <p style="color:red"> {{message}}</p>
+    <h1>Profile</h1>
+    <li> 使用者名稱:{{user.id}}-{{user.username}}</li>
+    <li> 最後登入時間: {{user.last_login}}</li>
+    <li> 超級管理員: {{user.is_superuser}}</li>
 
 </body>
 

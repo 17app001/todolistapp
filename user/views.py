@@ -1,6 +1,30 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.contrib.auth import login, logout, authenticate
+
+
+def user_profile(request):
+    user = request.user
+    return render(request, "./user/profile.html", {"user": user})
+
+
+def user_login(request):
+    message = ""
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        if not User.objects.filter(username=username):
+            message = "無此帳號"
+        else:
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                message = "登入成功!"
+            else:
+                message = "密碼錯誤!"
+
+    return render(request, "./user/login.html", {"message": message})
 
 
 # Create your views here.
