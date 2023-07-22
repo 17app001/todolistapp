@@ -1,5 +1,5 @@
 ##  建立專案  
-- django-admin startproject project-name .
+- django-admin startproject todolist
 
 ### 啟動Server 
 - python manage.py runserver 
@@ -11,10 +11,18 @@
 - python manage.py createsuperuser
 
 ### 新增功能 
-- python manage.py startapp app-name
+- python manage.py startapp user
 
+### 進行註冊
+- settings.py
+    - INSTALLED_APPS 
+        -  "user.apps.UserConfig"
 
 ## git 流程
 
 ### add .gitignore
 - 排除db.sqlite3
+
+### git add .
+
+### git commit -m "message"
