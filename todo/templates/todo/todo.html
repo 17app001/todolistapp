@@ -27,6 +27,10 @@
     a {
         color: black;
     }
+
+    a:visited {
+        color: black;
+    }
 </style>
 {% endblock %}
 {% block content %}
@@ -36,7 +40,7 @@
 <ul>
     <li><small>{{todo.created}}</small></li>
     <li class="title">
-        <a href="{% url 'view' todo.id %}"> {{todo.title}}</a>
+        <a href="{% url 'view' todo.id %}"> {{todo.title|safe|truncatechars:10}}</a>
 
     </li>
     <li>

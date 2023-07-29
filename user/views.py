@@ -30,7 +30,7 @@ def user_login(request):
             if user is not None:
                 login(request, user)
                 message = "登入成功!"
-                return redirect("profile")
+                return redirect("todo")
             else:
                 message = "密碼錯誤!"
 
