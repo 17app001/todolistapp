@@ -48,6 +48,7 @@
         <span style="color:red">重要</span>
         {% endif %}
     </li>
+    <a href="{% url 'completed_by_id' todo.id %}">取消完成</a>
 </ul>
 {% endfor %}
 {% else %}

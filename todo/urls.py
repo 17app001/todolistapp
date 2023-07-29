@@ -22,4 +22,6 @@ urlpatterns = [
     path("view/<int:id>", views.view, name="view"),
     path("create/", views.create, name="create"),
     path("completed/", views.completed, name="completed"),
+    path("completed/<int:id>", views.completed_by_id, name="completed_by_id"),
+    path("deleted/<int:id>", views.deleted_by_id, name="deleted_by_id"),
 ]

@@ -6,6 +6,25 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
+def deleted_by_id(request, id):
+    todo = Todo.objects.get(id=id, user=request.user)
+    todo.delete()
+    return redirect("todo")
+
+
+@login_required
+def completed_by_id(request, id):
+    todo = Todo.objects.get(id=id, user=request.user)
+    todo.completed = not todo.completed
+    if todo.completed:
+        todo.date_completed = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    else:
+        todo.date_completed = None
+    todo.save()
+    return redirect("todo")
+
+
+@login_required
 def create(request):
     message = ""
     user = request.user
@@ -55,7 +74,7 @@ def view(request, id):
                     else:
                         message = "修改錯誤!"
                 else:
-                    todo.delete()
+                    # todo.delete()
                     return redirect("todo")
 
         else:

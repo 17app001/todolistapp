@@ -19,7 +19,7 @@
     .title {
         color: blueviolet;
         background-color: white;
-        width: 300px;
+        width: 400px;
         font-size: 36px;
         font-weight: 900;
     }
@@ -41,16 +41,23 @@
     <li><small>{{todo.created}}</small></li>
     <li class="title">
         <a href="{% url 'view' todo.id %}"> {{todo.title|safe|truncatechars:10}}</a>
-
     </li>
     <li>
         {% if todo.important %}
         <span style="color:red">重要</span>
         {% endif %}
     </li>
+    <li>
+        <a href="{% url 'completed_by_id' todo.id %}">完成</a>&nbsp;
+        <a href="{% url 'deleted_by_id' todo.id %}">刪除</a>
+    </li>
 </ul>
 {% endfor %}
 {% else %}
 目前無代辦事項
 {% endif %}
+
+<script>
+
+</script>
 {% endblock %}
