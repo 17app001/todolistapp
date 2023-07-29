@@ -44,7 +44,8 @@
 <form action="" method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <button type="submit">修改</button>
+    <input type="submit" name="update" value="修改"></input>
+    <input type="submit" name="delete" value="刪除"></input>
 </form>
 {% endif %}
 {% endblock %}
