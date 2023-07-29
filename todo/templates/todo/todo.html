@@ -6,7 +6,7 @@
 <style>
     li {
         list-style-type: none;
-        height: 50px;
+        /* height: 50px; */
     }
 
     ul {
@@ -47,17 +47,19 @@
         <span style="color:red">重要</span>
         {% endif %}
     </li>
+    {% if todo.image %}
     <li>
-        <a href="{% url 'completed_by_id' todo.id %}">完成</a>&nbsp;
-        <a href="{% url 'deleted_by_id' todo.id %}">刪除</a>
+        <img src="{{todo.image.url}}" alt="" width="100px">
     </li>
+    {% endif %}
+    <div>
+        <a href="{% url 'completed_by_id' todo.id %}">完成</a>&nbsp;
+        <!-- <a href="{% url 'deleted_by_id' todo.id %}">刪除</a> -->
+        <a href="{% url 'deleted_by_id' todo.id %}" onclick="return confirm('你確定要刪除嗎？')">刪除</a>
+    </div>
 </ul>
 {% endfor %}
 {% else %}
 目前無代辦事項
 {% endif %}
-
-<script>
-
-</script>
-{% endblock %}
+{% endblock %}ㄋ

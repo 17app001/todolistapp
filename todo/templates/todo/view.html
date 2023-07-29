@@ -41,7 +41,7 @@
 </li>
 <hr>
 <h2>修改事項</h2>
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" name="update" value="修改"></input>

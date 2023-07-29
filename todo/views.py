@@ -35,7 +35,7 @@ def create(request):
         if request.method == "POST":
             print(request.POST)
             # 產生對應的TodoForm跟todo物件
-            form = TodoForm(request.POST)
+            form = TodoForm(request.POST, request.FILES)
             if form.is_valid():
                 todo = form.save(commit=False)
                 # 指定user
@@ -60,7 +60,7 @@ def view(request, id):
             form = TodoForm(instance=todo)
             if request.method == "POST":
                 if request.POST.get("update"):
-                    form = TodoForm(request.POST, instance=todo)
+                    form = TodoForm(request.POST, request.FILES, instance=todo)
                     if form.is_valid():
                         temp_todo = form.save(commit=False)
                         if temp_todo.completed:
