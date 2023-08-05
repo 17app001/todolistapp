@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-%s@_4jowl7i1k#l=q2xw44zpd+!7v%ou=o2%29cg7*f06z^rf(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*", "todolistapp-j5qb.onrender.com"]
 
 
 # Application definition
@@ -89,7 +89,7 @@ DATABASES = {
         "NAME": "todolist",
         "USER": "root",
         "PASSWORD": "12345678",
-        "HOST": "127.0.0.1",
+        "HOST": "database-1.criwpjjfolg5.us-east-1.rds.amazonaws.com",
         "PORT": "3306",
     }
 }
