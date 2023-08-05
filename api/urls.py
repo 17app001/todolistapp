@@ -18,5 +18,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    path("users/", views.users_api, name="users_api"),
+    path("users/<int:id>", views.user_api, name="user_api"),
     path("todos/", views.todos_api, name="todos_api"),
+    path("todos/<int:id>/", views.todo_api, name="todo_api"),
+    path("todos/user/<int:id>/", views.todos_user_api, name="todos_user_api"),
 ]

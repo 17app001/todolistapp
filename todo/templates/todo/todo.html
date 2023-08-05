@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
 代辦事項頁面
 {% endblock %}
@@ -31,6 +32,12 @@
     a:visited {
         color: black;
     }
+
+    img {
+        background-color: white;
+        padding: 12px;
+        border: 2px solid black;
+    }
 </style>
 {% endblock %}
 {% block content %}
@@ -38,18 +45,18 @@
 {% if todos %}
 {% for todo in todos %}
 <ul>
-    <li><small>{{todo.created}}</small></li>
-    <li class="title">
-        <a href="{% url 'view' todo.id %}"> {{todo.title|safe|truncatechars:10}}</a>
-    </li>
-    <li>
+    <li><small>{{todo.created}}</small>
         {% if todo.important %}
         <span style="color:red">重要</span>
         {% endif %}
     </li>
+    <li class="title">
+        <a href="{% url 'view' todo.id %}"> {{todo.title|safe|truncatechars:10}}</a>
+    </li>
+    <br>
     {% if todo.image %}
     <li>
-        <img src="{{todo.image.url}}" alt="" width="100px">
+        <img src="{% static todo.image.url %}" alt="" width="200px">
     </li>
     {% endif %}
     <div>

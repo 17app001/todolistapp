@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-%s@_4jowl7i1k#l=q2xw44zpd+!7v%ou=o2%29cg7*f06z^rf("
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*", "todolistapp-j5qb.onrender.com"]
 
@@ -130,7 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "/static/"
+STATIC_URL = "static/"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "static/media")
 
@@ -140,6 +140,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static/media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 LOGIN_URL = "/user/login/"
 
